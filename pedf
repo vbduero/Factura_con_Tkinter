@@ -1,0 +1,21 @@
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import A4, letter
+import datetime 
+
+hora = datetime.datetime.now().hour
+minu = datetime.datetime.now().minute
+seg = datetime.datetime.now().second
+
+
+w, h = letter
+c = canvas.Canvas("muestra.pdf", pagesize=letter)
+c.setFont("Helvetica",9)
+c.drawString(160,h-50,"hola mundo")
+c.drawString(160, h-70,f"FECHA:  {datetime.datetime.now().day} / {datetime.datetime.now().month} / {datetime.datetime.now().year}       Hora:{hora}:{minu}:{seg}")
+
+c.drawString(160, h-85, f"TOTAL{self.monto}")
+c.drawImage("py_code.png",160, h-300, width=100, height=100)
+
+c.save()
+
+
